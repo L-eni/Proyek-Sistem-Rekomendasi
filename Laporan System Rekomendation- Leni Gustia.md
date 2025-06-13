@@ -316,8 +316,7 @@ Tujuan utama dari sistem rekomendasi film yang dikembangkan dalam proyek ini ada
 
 - **Root Mean Squared Error (RMSE):**  
   Mengukur akar dari rata-rata selisih kuadrat antara nilai rating aktual ($y_i$) dan nilai prediksi ($\hat{y}_i$). 
- 
-    Rumus:
+ Rumus:
  $$
   RMSE = \sqrt{ \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 }
   $$
@@ -325,8 +324,7 @@ RMSE sangat sensitif terhadap kesalahan besar, sehingga memberikan penalti lebih
 
 - **Mean Absolute Error (MAE):**  
   Metrik ini mengukur rata-rata dari nilai absolut selisih antara rating sebenarnya dan rating hasil prediksi. 
-  
-    Rumus:
+  Rumus:
   $$
   MAE = \frac{1}{n} \sum_{i=1}^{n} \left| y_i - \hat{y}_i \right|
   $$
