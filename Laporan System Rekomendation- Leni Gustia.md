@@ -264,14 +264,13 @@ neuMF_model.compile(
 
 ---
 
-### **Top-N Recommendation**
+## **Top-N Recommendation**
 
 Analisis kualitatif terhadap hasil rekomendasi untuk pengguna sampel (**user_id: 1**) menunjukkan pendekatan yang berbeda dari dua model yang digunakan, yakni **RecommenderNet** dan **NeuMF**.
 
 Model **RecommenderNet** menunjukkan kecenderungan kuat terhadap **film dokumenter, drama, dan konten edukatif**. Judul-judul seperti *Planet Earth II (2016)*, *Human (2015)*, dan *Blue Planet II (2017)* menempati peringkat atas dalam daftar rekomendasi. Film-film ini umumnya memiliki **visual sinematik tinggi, narasi mendalam, dan daya edukatif yang kuat**, menunjukkan bahwa model mengenali preferensi pengguna terhadap **konten berkualitas dengan nilai artistik dan informatif**.
 
 Sementara itu, **NeuMF** menampilkan daftar rekomendasi yang lebih **beragam secara genre dan eksperimental**. Film seperti *Mulholland Dr. (1999)*, *Being John Malkovich (1999)*, dan *Clockwork Orange, A (1971)* masuk dalam daftar 10 besar. Genre yang muncul mencakup **drama, misteri, komedi, hingga thriller psikologis**, yang mengindikasikan bahwa NeuMF menangkap **ketertarikan pengguna terhadap cerita dengan kompleksitas tinggi dan pendekatan artistik yang unik**.
-
 
 ---
 
@@ -301,9 +300,9 @@ Dari sisi stabilitas dan prediktabilitas, **RecommenderNet** mungkin lebih unggu
 
 Tujuan utama dari sistem rekomendasi film yang dikembangkan dalam proyek ini adalah untuk memprediksi **rating film yang kemungkinan besar akan diberikan oleh pengguna**, seakurat mungkin. Untuk mencapai tujuan tersebut, performa dari masing-masing model dievaluasi menggunakan metrik regresi standar, yang mengukur sejauh mana nilai prediksi mendekati rating sebenarnya.
 
-## Metrik Evaluasi yang Digunakan
+### Metrik Evaluasi yang Digunakan
 
-### 1. Root Mean Squared Error (RMSE)
+#### 1. Root Mean Squared Error (RMSE)
 
 Root Mean Squared Error (RMSE) mengukur akar dari rata-rata selisih kuadrat antara nilai rating aktual (_yᵢ_) dan nilai prediksi (_ŷᵢ_).  
 Rumus:
@@ -313,9 +312,8 @@ Rumus:
 RMSE sangat sensitif terhadap kesalahan besar, sehingga memberikan penalti lebih tinggi untuk prediksi yang meleset jauh.  
 Semakin kecil nilai RMSE, semakin baik kualitas model.
 
----
 
-### 2. Mean Absolute Error (MAE)
+#### 2. Mean Absolute Error (MAE)
 
 MAE mengukur rata-rata dari nilai absolut selisih antara rating sebenarnya dan hasil prediksi.  
 Rumus:
