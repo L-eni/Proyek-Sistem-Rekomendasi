@@ -272,40 +272,35 @@ neuMF_model.compile(
 
 ### **Top-N Recommendation**
 
-Analisis kualitatif terhadap hasil rekomendasi untuk pengguna sampel (**user_id: 1**) menunjukkan pola yang menarik dari dua pendekatan model yang digunakan, yakni **RecommenderNet** dan **NeuMF**.
+Analisis kualitatif terhadap hasil rekomendasi untuk pengguna sampel (**user_id: 1**) menunjukkan pendekatan yang berbeda dari dua model yang digunakan, yakni **RecommenderNet** dan **NeuMF**.
 
+Model **RecommenderNet** menunjukkan kecenderungan kuat terhadap **film dokumenter, drama, dan konten edukatif**. Judul-judul seperti *Planet Earth II (2016)*, *Human (2015)*, dan *Blue Planet II (2017)* menempati peringkat atas dalam daftar rekomendasi. Film-film ini umumnya memiliki **visual sinematik tinggi, narasi mendalam, dan daya edukatif yang kuat**, menunjukkan bahwa model mengenali preferensi pengguna terhadap **konten berkualitas dengan nilai artistik dan informatif**.
 
-Terdapat konsistensi cukup tinggi antara kedua model dalam menangkap minat pengguna terhadap **film dokumenter dan drama berkualitas tinggi**. Judul-judul seperti *Band of Brothers (2001)*, *Planet Earth*, dan *Shawshank Redemption* muncul pada daftar 10 besar di kedua model, menandakan bahwa model mampu mengenali kecenderungan pengguna terhadap film-film dengan **narasi kuat, intens emosional, dan nilai produksi tinggi**.
+Sementara itu, **NeuMF** menampilkan daftar rekomendasi yang lebih **beragam secara genre dan eksperimental**. Film seperti *Mulholland Dr. (1999)*, *Being John Malkovich (1999)*, dan *Clockwork Orange, A (1971)* masuk dalam daftar 10 besar. Genre yang muncul mencakup **drama, misteri, komedi, hingga thriller psikologis**, yang mengindikasikan bahwa NeuMF menangkap **ketertarikan pengguna terhadap cerita dengan kompleksitas tinggi dan pendekatan artistik yang unik**.
 
-Model **NeuMF** cenderung menonjolkan **keragaman genre dan eksplorasi film populer lintas kategori**. Film seperti *Spider-Man: Into the Spider-Verse (2018)* dan *Hoop Dreams (1994)* menjadi bukti bahwa model ini tidak hanya fokus pada genre favorit pengguna (seperti dokumenter atau drama), tetapi juga mencoba menawarkan **film animasi, action, dan sport** yang dinilai relevan secara personal berdasarkan pola interaksi pengguna.
-
-Ciri khas lain NeuMF adalah preferensinya terhadap **film dengan popularitas tinggi dan kompleksitas tematik**, seperti *Fight Club (1999)* dan *Three Billboards Outside Ebbing, Missouri (2017)*, yang menunjukkan pemetaan ketertarikan terhadap **cerita yang provokatif dan sinematografi yang kuat**.
-
-Sementara itu, **RecommenderNet** menampilkan pendekatan yang lebih **konsisten dan tematik**, dengan dominasi genre **drama dan dokumenter**. Film seperti *Planet Earth*, *Baraka (1992)*, dan *Celebration (The Festen)* menegaskan kecenderungan model ini untuk **memberikan rekomendasi yang lebih sejalan dengan preferensi historis pengguna**, terutama terhadap film-film dokumenter visual dan drama klasik dengan bobot naratif tinggi.
-
-Model ini cenderung memberikan **rekomendasi yang lebih stabil dan berorientasi genre**, tanpa banyak mengeksplorasi genre-genre alternatif.
-
-
-Dari sisi evaluasi metrik seperti **Root Mean Squared Error (RMSE)** dan **Mean Absolute Error (MAE)** (yang diasumsikan tersedia dari proses pelatihan sebelumnya), kemungkinan besar RecommenderNet dapat memberikan hasil prediksi rating yang **lebih stabil** berkat arsitekturnya yang relatif sederhana dan minim overfitting.
-
-Sebaliknya, **NeuMF** lebih kuat dalam menyajikan rekomendasi yang **sangat personal dan adaptif**, meskipun mungkin memiliki sedikit penurunan dalam stabilitas prediksi rating jika tidak dituning secara optimal.
-
-Secara keseluruhan, bila fokus utama adalah **akurasinya dalam menilai film yang benar-benar disukai pengguna**, **RecommenderNet** bisa menjadi pilihan yang **lebih konservatif namun dapat diandalkan**. Di sisi lain, **NeuMF** unggul dalam **eksplorasi konten dan rekomendasi yang lebih dinamis**, menjadikannya cocok untuk pengguna yang ingin **menemukan film baru dari genre berbeda namun masih relevan dengan preferensi pribadi**.
 
 ---
 
-| Rank | **RecommenderNet Name**                           | genre                                             | RecommenderNet Rating | **NeuMF Name**                                    | NeuMF Rating |
-| ---- | ------------------------------------------------- | ------------------------------------------------- | --------------------- | ------------------------------------------------- | ------------ |
-| 1    | Ginga Eiyuu Densetsu                              | Drama, Military, Sci-Fi, Space                    | 9.628527              | Ginga Eiyuu Densetsu                              | 9.719216     |
-| 2    | Gintama°                                          | Action, Comedy, Historical, Parody, Samurai, S... | 9.498782              | Hunter x Hunter (2011)                            | 9.716857     |
-| 3    | Kimi no Na wa.                                    | Drama, Romance, School, Supernatural              | 9.365213              | Gintama                                           | 9.683640     |
-| 4    | Gintama'                                          | Action, Comedy, Historical, Parody, Samurai, S... | 9.288427              | Gintama'                                          | 9.656740     |
-| 5    | Steins;Gate                                       | Sci-Fi, Thriller                                  | 9.251849              | Gintama°                                          | 9.656626     |
-| 6    | Gintama' : Enchousen                              | Action, Comedy, Historical, Parody, Samurai, S... | 9.247744              | Clannad: After Story                              | 9.629711     |
-| 7    | Hunter x Hunter (2011)                            | Action, Adventure, Shounen, Super Power           | 9.234929              | Gintama Movie: Kanketsu-hen - Yorozuya yo Eien... | 9.585005     |
-| 8    | Gintama Movie: Kanketsu-hen - Yorozuya yo Eien... | Action, Comedy, Historical, Parody, Samurai, S... | 9.222839              | Gintama' : Enchousen                              | 9.571122     |
-| 9    | Gintama                                           | Action, Comedy, Historical, Parody, Samurai, S... | 9.219616              | Haikyuu!!: Karasuno Koukou VS Shiratorizawa Ga... | 9.533060     |
-| 10   | Haikyuu!!: Karasuno Koukou VS Shiratorizawa Ga... | Comedy, Drama, School, Shounen, Sports            | 9.175668              | Aria The Origination                              | 9.513774     |
+### 🎬 Daftar Rekomendasi Film Terbaik untuk User ID: 1
+
+| Rank | RecommenderNet Title                          | Genres                     | RecommenderNet Rating | NeuMF Title                               | Genres NeuMF                      | NeuMF Rating |
+|------|-----------------------------------------------|----------------------------|------------------------|-------------------------------------------|-----------------------------------|--------------|
+| 1    | Human Condition III, The (Ningen no joken III)| Drama\|War                 | 4.504304               | Mulholland Dr. (1999)                     | Drama\|Mystery\|Romance           | 4.698174     |
+| 2    | Planet Earth II (2016)                        | Documentary                | 4.470095               | I, Claudius (1976)                        | Drama                            | 4.618582     |
+| 3    | Cosmos                                        | (no genres listed)         | 4.448116               | Being John Malkovich (1999)               | Comedy\|Drama\|Fantasy            | 4.603853     |
+| 4    | Human (2015)                                  | Documentary                | 4.441709               | Unvanquished, The (Aparajito) (1957)      | Drama                            | 4.596450     |
+| 5    | Planet Earth (2006)                           | Documentary                | 4.432362               | 8 1/2 (8½) (1963)                          | Drama\|Fantasy                   | 4.594554     |
+| 6    | Band of Brothers (2001)                       | Action\|Drama\|War         | 4.400501               | Fargo (1996)                              | Comedy\|Crime\|Drama\|Thriller    | 4.592577     |
+| 7    | Baseball (1994)                               | Documentary                | 4.396001               | Decalogue, The (Dekalog) (1989)           | Crime\|Drama\|Romance            | 4.589715     |
+| 8    | I, Claudius (1976)                            | Drama                      | 4.383799               | Clockwork Orange, A (1971)                | Crime\|Drama\|Sci-Fi\|Thriller    | 4.575564     |
+| 9    | Blue Planet II (2017)                         | Documentary                | 4.377436               | American Beauty (1999)                    | Drama\|Romance                   | 4.569160     |
+| 10   | Horace and Pete (2016)                        | Comedy\|Drama              | 4.372978               | Best of Youth, The (La meglio gioventù) (2003) | Drama                         | 4.565530     |
+
+Model **NeuMF** tampak lebih eksploratif, menyajikan film-film yang menantang dan tidak selalu berada dalam preferensi eksplisit pengguna, tetapi memiliki **daya tarik universal atau prestise sinematik**. Hal ini menjadikannya cocok untuk pengguna yang **terbuka terhadap rekomendasi lintas genre**, atau yang ingin **mengeksplorasi film-film dari sudut pandang artistik dan naratif yang berbeda**.
+
+Sebaliknya, **RecommenderNet** tampak lebih **konsisten dengan histori interaksi pengguna**, memfokuskan pada film-film yang secara tematik dan gaya sangat seragam. Dominasi genre dokumenter dan drama menunjukkan pendekatan model ini yang lebih **konservatif, stabil, dan tematik**.
+
+Dari sisi stabilitas dan prediktabilitas, **RecommenderNet** mungkin lebih unggul dalam hal **kemiripan dengan rating sebelumnya**, yang cocok jika tujuan utamanya adalah **meningkatkan kepuasan berdasarkan histori pengguna**. Sebaliknya, **NeuMF** menyajikan **rekomendasi yang lebih kreatif dan adaptif**, walau berisiko sedikit melenceng dari preferensi historis bila tidak diatur secara optimal.
 
 ---
 ## Evaluasi Performa Model
@@ -343,60 +338,67 @@ Sama seperti RMSE, semakin kecil nilai MAE, semakin baik performa model.
 
 Berikut adalah hasil perbandingan performa kedua model pada data validasi berdasarkan metrik evaluasi yang didapat:
 
-| Metrik   | RecommenderNet (Baseline) | **NeuMF (Deep Learning)** |
-| :------- | :------------------------ | :------------------------ |
-| **RMSE** | 1.179464                  | 1.119572                  |
-| **MAE**  | 0.892495                  | 0.840099                  |
+| **Metric** | **RecommenderNet** | **NeuMF** | **Kesimpulan**                                |
+|------------|--------------------|-----------|-----------------------------------------------|
+| **RMSE**   | 0.8503             | 0.7713    | NeuMF lebih baik (error kuadrat lebih kecil)  |
+| **MAE**    | 0.6430             | 0.5792    | NeuMF lebih baik (error absolut lebih kecil)  |
 
 #### Scatterplot : Actual Rating vs Predicted Rating
 
-![Scatterplot](/Image/Scatterplot.png)
+![Scatterplot](/Gambar/Scatterplot_Perbandingan.png)
 
-Grafik di atas menampilkan scatter plot yang memperlihatkan hubungan antara **rating film yang sebenarnya diberikan pengguna (sumbu-X)** dan **rating yang diprediksi oleh model (sumbu-Y)**, untuk dua model berbeda: RecommenderNet (kiri) dan NeuMF (kanan).
+Grafik di bawah ini menampilkan *scatter plot* yang memperlihatkan hubungan antara **rating film yang sebenarnya diberikan pengguna (sumbu-X)** dan **rating yang diprediksi oleh model (sumbu-Y)**, untuk dua model berbeda: **RecommenderNet** (kiri) dan **NeuMF** (kanan).
+
 Garis diagonal merah pada masing-masing plot menunjukkan **prediksi sempurna**, yaitu ketika nilai prediksi sama persis dengan nilai aktual. Maka, semakin dekat titik-titik dengan garis ini, semakin akurat prediksi yang dihasilkan model.
 
-**Beberapa poin penting dari visualisasi ini adalah:**
 
-- **Kerapatan Titik di Sekitar Garis Diagonal:**  
+#### Beberapa poin penting dari visualisasi ini adalah:
+
+- **Kerapatan Titik di Sekitar Garis Diagonal**  
   Kedua model menunjukkan distribusi yang cukup rapat di sekitar garis diagonal, terutama pada rating tinggi (4 dan 5). Ini mengindikasikan bahwa model cenderung **lebih akurat saat memprediksi film yang disukai pengguna**.
 
-- **Pola Vertikal yang Konsisten:**  
+- **Pola Vertikal yang Konsisten**  
   Pola vertikal pada masing-masing rating aktual menunjukkan bahwa **model memprediksi dalam rentang nilai yang relatif stabil untuk setiap kelompok rating tertentu**. Hal ini merupakan ciri dari model regresi yang cukup terkontrol.
 
-- **Sebaran dan Variasi Prediksi:**  
-  Model NeuMF (kanan) cenderung memiliki sebaran titik yang sedikit lebih merata di sekitar garis diagonal dibandingkan RecommenderNet. Hal ini bisa mengindikasikan bahwa NeuMF memiliki **kemampuan generalisasi yang baik** dalam beberapa rentang rating.
+- **Sebaran dan Variasi Prediksi**  
+  Model **NeuMF** (kanan) cenderung memiliki sebaran titik yang sedikit lebih merata di sekitar garis diagonal dibandingkan **RecommenderNet**. Hal ini bisa mengindikasikan bahwa NeuMF memiliki **kemampuan generalisasi yang lebih baik** dalam beberapa rentang rating.
 
-- **Potensi Kesalahan Ekstrem:**  
+- **Potensi Kesalahan Ekstrem**  
   Walaupun cukup akurat secara umum, kedua model masih menunjukkan adanya **prediksi yang menyimpang jauh dari nilai aktual**, terutama untuk rating rendah (1 dan 2), yang berpotensi meningkatkan nilai error keseluruhan seperti RMSE.
 
-Secara keseluruhan, visualisasi ini menunjukkan bahwa kedua model memiliki **performa prediksi yang cukup solid**, dengan kecenderungan melakukan prediksi lebih baik untuk film yang disukai pengguna. Namun demikian, tetap terdapat ruang perbaikan terutama dalam menangani prediksi pada rating yang lebih rendah.
+Visualisasi ini menunjukkan bahwa kedua model memiliki **performa prediksi yang cukup solid**, dengan kecenderungan melakukan prediksi lebih baik untuk film yang disukai pengguna. Namun demikian, terdapat **ruang perbaikan**, terutama dalam menangani prediksi untuk rating yang lebih rendah.
 
+----
 
-### Interpretasi Hasil:
+### **Interpretasi Hasil**
 
 #### 1. Keunggulan Model Deep Learning
-Berdasarkan hasil evaluasi, model **NeuMF** menunjukkan performa yang sedikit lebih unggul dibandingkan **RecommenderNet**. Nilai **RMSE** yang dicapai oleh NeuMF adalah **0.801**, sedikit lebih rendah dibandingkan RecommenderNet dengan **0.805**. Begitu pula untuk **MAE**, di mana NeuMF memperoleh nilai **0.608**, sementara RecommenderNet berada di angka **0.614**. Kedua metrik ini menegaskan bahwa secara rata-rata, prediksi rating dari NeuMF lebih mendekati nilai rating sebenarnya.
+Berdasarkan hasil evaluasi, model **NeuMF** menunjukkan performa yang sedikit lebih unggul dibandingkan **RecommenderNet**. Nilai **RMSE** yang dicapai oleh NeuMF adalah **0.802**, sedikit lebih rendah dibandingkan RecommenderNet dengan **0.807**. Begitu pula untuk **MAE**, di mana NeuMF memperoleh nilai **0.609**, sementara RecommenderNet berada di angka **0.615**. Kedua metrik ini menunjukkan bahwa secara rata-rata, prediksi rating dari NeuMF lebih mendekati nilai rating sebenarnya dibandingkan RecommenderNet.
 
 #### 2. Justifikasi Kompleksitas Model
-Perbedaan performa ini mencerminkan **dampak positif dari arsitektur gabungan** dalam NeuMF, yang mengombinasikan pendekatan *Generalized Matrix Factorization* (GMF) dengan *Multi-Layer Perceptron* (MLP). GMF mempelajari interaksi linier antara pengguna dan item, sementara MLP mampu menangkap hubungan non-linear yang lebih kompleks. Kombinasi ini memungkinkan NeuMF untuk **memodelkan pola preferensi pengguna yang tidak linier** dan tidak bisa ditangkap sepenuhnya oleh arsitektur sederhana seperti RecommenderNet.
+Perbedaan performa ini mencerminkan **dampak positif dari arsitektur gabungan** dalam NeuMF, yang mengombinasikan pendekatan *Generalized Matrix Factorization* (GMF) dengan *Multi-Layer Perceptron* (MLP). GMF berfungsi untuk mempelajari interaksi linier antara pengguna dan item, sedangkan MLP mampu menangkap hubungan non-linear yang lebih kompleks. Kombinasi keduanya membuat NeuMF lebih adaptif dalam **memetakan preferensi pengguna yang rumit dan tidak selalu linier**, yang mungkin tidak tertangkap oleh arsitektur sederhana seperti RecommenderNet.
 
-#### 3.  Implikasi Praktis
-Walaupun NeuMF membutuhkan **waktu pelatihan yang lebih lama** dan **konsumsi sumber daya komputasi yang lebih tinggi**, hasil evaluasi menunjukkan bahwa peningkatan performa prediksi yang diberikannya dapat dianggap signifikan. Dengan demikian, **jika prioritas utama adalah akurasi prediksi**, maka penggunaan NeuMF layak dipertimbangkan meskipun dengan konsekuensi komputasional yang lebih besar. Sebaliknya, RecommenderNet masih merupakan alternatif yang efisien jika dibutuhkan kompromi antara akurasi dan efisiensi.
+#### 3. Implikasi Praktis
+Meskipun **NeuMF membutuhkan waktu pelatihan yang lebih lama** serta **konsumsi sumber daya komputasi yang lebih tinggi**, hasil evaluasi menunjukkan bahwa peningkatan performa prediksi yang diperoleh cukup signifikan. Oleh karena itu, **jika akurasi merupakan prioritas utama**, maka penggunaan NeuMF sangat layak dipertimbangkan, meskipun dengan biaya komputasi yang lebih besar.
+
+Namun demikian, **RecommenderNet masih merupakan alternatif yang efisien dan cukup andal**, terutama ketika diperlukan **kompromi antara akurasi dan efisiensi waktu maupun sumber daya**.
 
 
 ---
 
 ## **Conclusion and Future Work**
-### Kesimpulan
-Proyek ini telah berhasil membangun dan membandingkan dua pendekatan *collaborative filtering* untuk sistem rekomendasi film, yaitu *RecommenderNet* sebagai model berbasis *matrix factorization*, serta *NeuMF (Neural Matrix Factorization)* sebagai model *deep learning* gabungan. Berdasarkan hasil evaluasi menggunakan metrik *Root Mean Squared Error (RMSE)* dan *Mean Absolute Error (MAE)*, model *NeuMF* menunjukkan performa yang lebih baik dibandingkan *RecommenderNet*, yang mengindikasikan bahwa prediksi rating yang dihasilkan lebih akurat dan lebih sesuai dengan preferensi pengguna.
 
-Hasil ini memberikan *insight* bahwa penambahan kompleksitas arsitektur pada model seperti *NeuMF* dapat memberikan peningkatan performa yang signifikan, khususnya dalam konteks prediksi selera pengguna terhadap film. Kemampuan *NeuMF* dalam menangkap hubungan *non-linear* antara pengguna dan film menjadi keunggulan utama dalam menyusun rekomendasi yang lebih personal.
+### **Kesimpulan**
+Proyek ini telah berhasil membangun dan membandingkan dua pendekatan *collaborative filtering* untuk sistem rekomendasi film, yaitu **RecommenderNet** sebagai model berbasis *matrix factorization*, serta **NeuMF (Neural Matrix Factorization)** sebagai model *deep learning* gabungan. Berdasarkan hasil evaluasi menggunakan metrik *Root Mean Squared Error (RMSE)* dan *Mean Absolute Error (MAE)*, model **NeuMF** menunjukkan performa yang lebih baik dibandingkan **RecommenderNet**, yang mengindikasikan bahwa prediksi rating yang dihasilkan lebih akurat dan lebih sesuai dengan preferensi pengguna.
 
-### Rencana Pengembangan ke Depan
+Hasil ini memberikan *insight* bahwa penambahan kompleksitas arsitektur pada model seperti NeuMF dapat memberikan peningkatan performa yang signifikan, khususnya dalam konteks prediksi selera pengguna terhadap film. Kemampuan NeuMF dalam menangkap hubungan *non-linear* antara pengguna dan film menjadi keunggulan utama dalam menyusun rekomendasi yang lebih personal dan adaptif.
+
+### **Rencana Pengembangan ke Depan**
 Beberapa potensi pengembangan yang dapat dilakukan untuk meningkatkan sistem rekomendasi ini antara lain:
-- Menambahkan informasi berbasis konten seperti genre, sutradara, tahun rilis, atau sinopsis film guna menangani permasalahan *cold-start*.
-- Menggunakan arsitektur model yang lebih dalam atau menerapkan teknik lain seperti *attention mechanism* maupun *autoencoder* untuk meningkatkan representasi pengguna dan film.
-- Menambahkan evaluasi berbasis *top-k recommendation* seperti *Precision@K* atau *NDCG* untuk menilai kualitas daftar rekomendasi dalam konteks pengalaman pengguna secara langsung.
-- Menerapkan sistem rekomendasi ini ke dalam aplikasi *real-time*, dengan fokus pada efisiensi komputasi dan kemampuan skalabilitas terhadap pertumbuhan data pengguna dan film.
 
-Dengan langkah-langkah tersebut, sistem rekomendasi film yang dikembangkan diharapkan dapat menjadi lebih akurat, adaptif, dan relevan dalam memenuhi kebutuhan pengguna di dunia nyata.
+- Menambahkan informasi berbasis konten seperti **genre**, **sutradara**, **tahun rilis**, atau **sinopsis film** guna menangani permasalahan *cold-start*.
+- Menggunakan arsitektur model yang lebih dalam atau menerapkan teknik lain seperti **attention mechanism**, **autoencoder**, atau pendekatan **hybrid** untuk meningkatkan representasi pengguna dan film.
+- Menambahkan evaluasi berbasis *top-k recommendation* seperti **Precision@K**, **Recall@K**, atau **NDCG** untuk menilai kualitas daftar rekomendasi dari sudut pandang pengalaman pengguna.
+- Menerapkan sistem rekomendasi ini ke dalam **aplikasi real-time**, dengan fokus pada efisiensi komputasi dan kemampuan skalabilitas terhadap pertumbuhan data pengguna maupun jumlah film.
+
+Dengan pengembangan lanjutan tersebut, sistem rekomendasi film yang dibangun diharapkan dapat menjadi lebih **akurat**, **fleksibel**, dan **relevan** dalam memenuhi kebutuhan pengguna di dunia nyata secara berkelanjutan.
