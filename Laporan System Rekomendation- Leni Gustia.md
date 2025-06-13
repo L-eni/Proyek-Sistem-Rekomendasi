@@ -257,7 +257,7 @@ neuMF_model.compile(
   
 **Kelebihan:**
 - **Kemampuan Menangkap Interaksi Kompleks:**  
-  NeuMF unggul dalam mengenali hubungan non-linear dan kompleks antara pengguna dan item (seperti anime), terutama melalui komponen *Multi-Layer Perceptron (MLP)* yang dimilikinya.
+  NeuMF unggul dalam mengenali hubungan non-linear dan kompleks antara pengguna dan item, terutama melalui komponen *Multi-Layer Perceptron (MLP)* yang dimilikinya.
 - **Arsitektur yang Fleksibel:**  
   Dengan memanfaatkan jaringan saraf tiruan, model ini mampu menyesuaikan diri dengan berbagai pola data yang tidak dapat ditangkap oleh metode tradisional.
 
