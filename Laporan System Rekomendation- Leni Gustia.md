@@ -122,23 +122,23 @@ Secara keseluruhan, distribusi ini bersifat *positively skewed* (condong ke kana
 ---
 Sebelum data digunakan untuk melatih model sistem rekomendasi, dilakukan beberapa tahap **persiapan data** guna memastikan kualitas data, efisiensi komputasi, serta kesesuaian format data dengan kebutuhan algoritma pembelajaran mesin yang digunakan.
 
-#### 1. Pemeriksaan dan Pembersihan Data Duplikat
+### 1. Pemeriksaan dan Pembersihan Data Duplikat
 Dataset telah diperiksa dan **tidak ditemukan data duplikat**. Oleh karena itu, tidak diperlukan penghapusan data ganda, dan dataset dapat langsung digunakan untuk proses selanjutnya.
 
-#### 2. Preprocessing dan Filtering Data
+### 2. Preprocessing dan Filtering Data
 Karena ukuran dataset cukup besar (sekitar **25.000.094 baris data rating** dari file `ratings.csv`), dilakukan proses *filtering* untuk meningkatkan efisiensi proses komputasi dan memastikan bahwa model dilatih pada data yang paling relevan.
 
 - **Fokus pada Rating Eksplisit**: Data dengan nilai rating `0` dihapus karena dianggap tidak merepresentasikan preferensi pengguna secara eksplisit. Langkah ini bertujuan untuk melatih model hanya menggunakan data yang mencerminkan penilaian nyata dari pengguna terhadap film. Namun, dalam dataset yang digunakan, tidak ditemukan rating di bawah 0,5.
 
 - **Filtering Berdasarkan Aktivitas**: Untuk meningkatkan kualitas data pelatihan, hanya pengguna yang memberikan **minimal 50 rating** dan film yang menerima **minimal 50 rating** yang disertakan. Langkah ini membantu model belajar dari interaksi yang lebih stabil dan informatif.
 
-#### 3. Encoding Data
+### 3. Encoding Data
 ID pengguna (`userId`) dan ID film (`movieId`) yang tersisa setelah proses filtering diubah menjadi **indeks numerik** mulai dari `0`. Kolom baru dengan nama `user` dan `movie` ditambahkan untuk menyimpan hasil encoding ini. Hal ini penting agar model dapat memanfaatkan data ID dalam bentuk tensor atau array numerik yang bisa diproses oleh algoritma pembelajaran mendalam.
 
-#### 4. Normalisasi Rating
+### 4. Normalisasi Rating
 Kolom `rating` dinormalisasi ke dalam rentang antara `0` dan `1` menggunakan teknik **Min-Max Scaling**. Nilai hasil normalisasi ini disimpan dalam kolom baru bernama `rating_norm`, yang akan digunakan sebagai **label target** pada saat pelatihan model. Normalisasi ini bertujuan untuk mempercepat proses pelatihan model dan meningkatkan stabilitas pembelajaran.
 
-#### 5. Split Dataset
+### 5. Split Dataset
 Dataset yang telah dibersihkan dan diproses kemudian diacak dan dibagi menjadi dua bagian:
 - **80% untuk data latih**
 - **20% untuk data validasi**
@@ -211,10 +211,8 @@ recommender_net_model.compile(
 ### Arsitektur Model
 
 - Model NeuMF terdiri atas dua jalur pemrosesan embedding:
-  1. GMF (Generalized Matrix Factorization)
-  Menggunakan operasi *dot product* untuk menangkap interaksi linier antara pengguna dan item, menyerupai metode *matrix factorization* klasik.
-2. MLP (Multi-Layer Perceptron)
-  Menggabungkan (*concatenate*) embedding pengguna dan item, kemudian meneruskannya ke beberapa *fully connected layer* untuk mempelajari pola interaksi yang lebih kompleks.
+  - GMF (Generalized Matrix Factorization) : Menggunakan operasi *dot product* untuk menangkap interaksi linier antara pengguna dan item, menyerupai metode *matrix factorization* klasik.
+  - MLP (Multi-Layer Perceptron) : Menggabungkan (*concatenate*) embedding pengguna dan item, kemudian meneruskannya ke beberapa *fully connected layer* untuk mempelajari pola interaksi yang lebih kompleks.
 - Keluaran dari kedua jalur (**GMF** dan **MLP**) digabungkan (*concatenated*) dan diproses lebih lanjut melalui lapisan *dense* akhir.
 - Lapisan output menggunakan fungsi aktivasi **sigmoid** untuk menghasilkan skor prediksi dalam rentang **0 hingga 1**.
   
