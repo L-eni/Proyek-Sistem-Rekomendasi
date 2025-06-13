@@ -80,7 +80,7 @@ Dataset ini terdiri atas dua file utama:
 
 ### Visualisasi Distribusi Data Rating
 
-![Distribusi](/Image/Barchart.png)
+![Distribusi](/Gambar/Distribusi Rating.png)
 
 
 Berdasarkan grafik distribusi rating, terlihat bahwa penilaian pengguna tidak tersebar merata dan cenderung terkonsentrasi pada nilai yang tinggi, terutama pada rating 4 dan 5 yang mendominasi. Hal ini menunjukkan bahwa **mayoritas pengguna memberikan ulasan positif terhadap film yang mereka tonton**.
