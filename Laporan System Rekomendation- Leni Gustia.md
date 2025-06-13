@@ -211,9 +211,9 @@ recommender_net_model.compile(
 ### Arsitektur Model
 
 - Model NeuMF terdiri atas dua jalur pemrosesan embedding:
- ** 1. GMF (Generalized Matrix Factorization):**  
+  1. GMF (Generalized Matrix Factorization)
   Menggunakan operasi *dot product* untuk menangkap interaksi linier antara pengguna dan item, menyerupai metode *matrix factorization* klasik.
-  ** 2. MLP (Multi-Layer Perceptron):**  
+2. MLP (Multi-Layer Perceptron)
   Menggabungkan (*concatenate*) embedding pengguna dan item, kemudian meneruskannya ke beberapa *fully connected layer* untuk mempelajari pola interaksi yang lebih kompleks.
 - Keluaran dari kedua jalur (**GMF** dan **MLP**) digabungkan (*concatenated*) dan diproses lebih lanjut melalui lapisan *dense* akhir.
 - Lapisan output menggunakan fungsi aktivasi **sigmoid** untuk menghasilkan skor prediksi dalam rentang **0 hingga 1**.
