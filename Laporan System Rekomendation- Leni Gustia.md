@@ -281,7 +281,7 @@ Sementara itu, **NeuMF** menampilkan daftar rekomendasi yang lebih **beragam sec
 
 ---
 
-### 🎬 Daftar Rekomendasi Film Terbaik untuk User ID: 1
+### Daftar Rekomendasi Film Terbaik untuk User ID: 1
 
 | Rank | RecommenderNet Title                          | Genres                     | RecommenderNet Rating | NeuMF Title                               | Genres NeuMF                      | NeuMF Rating |
 |------|-----------------------------------------------|----------------------------|------------------------|-------------------------------------------|-----------------------------------|--------------|
