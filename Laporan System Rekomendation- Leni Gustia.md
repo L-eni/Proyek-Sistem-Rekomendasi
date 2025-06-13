@@ -92,7 +92,7 @@ Secara statistik, distribusi ini bersifat *left-skewed* (*skew negatif*), karena
 
 ### Visualisasi Histogram Data Rating
 
-![Histogram](/Image/Histo.png)
+![Histogram](/Gambar/Histogram_Rating.png)
 
 Berdasarkan visualisasi distribusi rating, terlihat bahwa mayoritas pengguna memberikan **rating tinggi**, dengan nilai **4** mendominasi frekuensi. Rating **3 dan 5** juga sering diberikan, yang mengindikasikan bahwa sebagian besar pengguna menilai film sebagai **cukup baik hingga sangat baik**.
 
@@ -104,7 +104,7 @@ Distribusi ini menunjukkan pola *right-skewed* (*positively skewed*), yaitu kond
 
 ### Visualisasi Boxplot Data Rating
 
-![Boxplot](/Image/Boxplot.png)
+![Boxplot](/Gambar/Boxplot_Rating.png)
 
 Berdasarkan visualisasi **boxplot** nilai rating film, dapat disimpulkan bahwa mayoritas pengguna memberikan rating dalam rentang **3 hingga 4.5**. Hal ini ditunjukkan oleh **lebar kotak (interquartile range/IQR)**, yang merepresentasikan 50% data berada di antara kuartil pertama dan ketiga.
 
