@@ -308,14 +308,13 @@ Secara keseluruhan, bila fokus utama adalah **akurasinya dalam menilai film yang
 | 10   | Haikyuu!!: Karasuno Koukou VS Shiratorizawa Ga... | Comedy, Drama, School, Shounen, Sports            | 9.175668              | Aria The Origination                              | 9.513774     |
 
 ---
-### Evaluasi Performa Model
+## Evaluasi Performa Model
 
 Tujuan utama dari sistem rekomendasi film yang dikembangkan dalam proyek ini adalah untuk memprediksi **rating film yang kemungkinan besar akan diberikan oleh pengguna**, seakurat mungkin. Untuk mencapai tujuan tersebut, performa dari masing-masing model dievaluasi menggunakan metrik regresi standar, yang mengukur sejauh mana nilai prediksi mendekati rating sebenarnya.
 
-
 ## Metrik Evaluasi yang Digunakan
 
-## Root Mean Squared Error (RMSE)
+### 1. Root Mean Squared Error (RMSE)
 
 Root Mean Squared Error (RMSE) mengukur akar dari rata-rata selisih kuadrat antara nilai rating aktual (_yᵢ_) dan nilai prediksi (_ŷᵢ_).  
 Rumus:
@@ -327,7 +326,7 @@ Semakin kecil nilai RMSE, semakin baik kualitas model.
 
 ---
 
-## Mean Absolute Error (MAE)
+### 2. Mean Absolute Error (MAE)
 
 MAE mengukur rata-rata dari nilai absolut selisih antara rating sebenarnya dan hasil prediksi.  
 Rumus:
@@ -340,7 +339,7 @@ Sama seperti RMSE, semakin kecil nilai MAE, semakin baik performa model.
 
 ---
 
-### Hasil dan Analisis
+## Hasil dan Analisis
 
 Berikut adalah hasil perbandingan performa kedua model pada data validasi berdasarkan metrik evaluasi yang didapat:
 
@@ -373,27 +372,27 @@ Garis diagonal merah pada masing-masing plot menunjukkan **prediksi sempurna**, 
 Secara keseluruhan, visualisasi ini menunjukkan bahwa kedua model memiliki **performa prediksi yang cukup solid**, dengan kecenderungan melakukan prediksi lebih baik untuk film yang disukai pengguna. Namun demikian, tetap terdapat ruang perbaikan terutama dalam menangani prediksi pada rating yang lebih rendah.
 
 
-#### Interpretasi Hasil:
+### Interpretasi Hasil:
 
-##### 1. Keunggulan Model Deep Learning
+#### 1. Keunggulan Model Deep Learning
 Berdasarkan hasil evaluasi, model **NeuMF** menunjukkan performa yang sedikit lebih unggul dibandingkan **RecommenderNet**. Nilai **RMSE** yang dicapai oleh NeuMF adalah **0.801**, sedikit lebih rendah dibandingkan RecommenderNet dengan **0.805**. Begitu pula untuk **MAE**, di mana NeuMF memperoleh nilai **0.608**, sementara RecommenderNet berada di angka **0.614**. Kedua metrik ini menegaskan bahwa secara rata-rata, prediksi rating dari NeuMF lebih mendekati nilai rating sebenarnya.
 
-##### 2. Justifikasi Kompleksitas Model
+#### 2. Justifikasi Kompleksitas Model
 Perbedaan performa ini mencerminkan **dampak positif dari arsitektur gabungan** dalam NeuMF, yang mengombinasikan pendekatan *Generalized Matrix Factorization* (GMF) dengan *Multi-Layer Perceptron* (MLP). GMF mempelajari interaksi linier antara pengguna dan item, sementara MLP mampu menangkap hubungan non-linear yang lebih kompleks. Kombinasi ini memungkinkan NeuMF untuk **memodelkan pola preferensi pengguna yang tidak linier** dan tidak bisa ditangkap sepenuhnya oleh arsitektur sederhana seperti RecommenderNet.
 
-##### 3.  Implikasi Praktis
+#### 3.  Implikasi Praktis
 Walaupun NeuMF membutuhkan **waktu pelatihan yang lebih lama** dan **konsumsi sumber daya komputasi yang lebih tinggi**, hasil evaluasi menunjukkan bahwa peningkatan performa prediksi yang diberikannya dapat dianggap signifikan. Dengan demikian, **jika prioritas utama adalah akurasi prediksi**, maka penggunaan NeuMF layak dipertimbangkan meskipun dengan konsekuensi komputasional yang lebih besar. Sebaliknya, RecommenderNet masih merupakan alternatif yang efisien jika dibutuhkan kompromi antara akurasi dan efisiensi.
 
 
 ---
 
-### **Conclusion and Future Work**
-#### Kesimpulan
+## **Conclusion and Future Work**
+### Kesimpulan
 Proyek ini telah berhasil membangun dan membandingkan dua pendekatan *collaborative filtering* untuk sistem rekomendasi film, yaitu *RecommenderNet* sebagai model berbasis *matrix factorization*, serta *NeuMF (Neural Matrix Factorization)* sebagai model *deep learning* gabungan. Berdasarkan hasil evaluasi menggunakan metrik *Root Mean Squared Error (RMSE)* dan *Mean Absolute Error (MAE)*, model *NeuMF* menunjukkan performa yang lebih baik dibandingkan *RecommenderNet*, yang mengindikasikan bahwa prediksi rating yang dihasilkan lebih akurat dan lebih sesuai dengan preferensi pengguna.
 
 Hasil ini memberikan *insight* bahwa penambahan kompleksitas arsitektur pada model seperti *NeuMF* dapat memberikan peningkatan performa yang signifikan, khususnya dalam konteks prediksi selera pengguna terhadap film. Kemampuan *NeuMF* dalam menangkap hubungan *non-linear* antara pengguna dan film menjadi keunggulan utama dalam menyusun rekomendasi yang lebih personal.
 
-#### Rencana Pengembangan ke Depan
+### Rencana Pengembangan ke Depan
 Beberapa potensi pengembangan yang dapat dilakukan untuk meningkatkan sistem rekomendasi ini antara lain:
 - Menambahkan informasi berbasis konten seperti genre, sutradara, tahun rilis, atau sinopsis film guna menangani permasalahan *cold-start*.
 - Menggunakan arsitektur model yang lebih dalam atau menerapkan teknik lain seperti *attention mechanism* maupun *autoencoder* untuk meningkatkan representasi pengguna dan film.
